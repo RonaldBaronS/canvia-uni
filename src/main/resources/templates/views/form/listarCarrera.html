@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>Lista de Carreras Profesionales</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+ <style>
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  </style>
+<body background="/images/fondoBlanco.jpg">
+
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text=${titulo}></h1>
+	</div>
+	
+    <br></br>
+	<div class="container">
+		<table class="table">
+			<thead class="table-dark">
+			<tr>
+				<th scope="col">Código de Carrera</th>
+				<th scope="col">Carrera Profesional</th>
+				<th scope="col">Duración</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="nt:${carreras}">
+				<td th:text="${nt.idCarrera}"></td>
+				<td th:text="${nt.nombreCarrera}"><p><a th:href="${nt.nombreCarrera}"></a></p>
+				<td th:text="${nt.tiempoCarrera}"></td>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!--  <footer th:replace="plantilla/template :: footer"></footer>-->
+
+</body>
+</html>

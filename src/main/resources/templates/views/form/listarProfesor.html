@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>Lista de Docentes de la Universidad Coorporativa</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+ <style>
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  </style>
+<body background="/images/fondoBlanco.jpg">
+
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text=${titulo}></h1>
+	</div>
+	
+    <br></br>
+	<div class="container">
+		<table class="table">
+			<thead class="table-dark">
+			<tr>
+				<th scope="col">Código de Profesor</th>
+				<th scope="col">Nombre de Profesor</th>
+				<th scope="col">Horario</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="nt:${profesores}">
+				<td th:text="${nt.idProfesor}"></td>
+				<td th:text="${nt.nombreProfesor}"><p><a th:href="${nt.nombreProfesor}"></a></p>
+				<td th:text="${nt.horarioProfesor}"></td>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!--  <footer th:replace="plantilla/template :: footer"></footer>-->
+
+</body>
+</html>

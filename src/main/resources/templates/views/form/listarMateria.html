@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>Lista de Cursos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+ <style>
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  </style>
+<body background="/images/fondoBlanco.jpg">
+
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text=${titulo}></h1>
+	</div>
+	
+    <br></br>
+	<div class="container">
+		<table class="table">
+			<thead class="table-dark">
+			<tr>
+				<th scope="col">Código de Curso</th>
+				<th scope="col">Nombre de Curso</th>
+				<th scope="col">Crédito Académico</th>
+				<th scope="col">Profesores</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="nt:${materias}">
+				<td th:text="${nt.idMateria}"></td>
+				<td th:text="${nt.nombreMateria}"><p><a th:href="${nt.nombreMateria}"></a></p>
+				<td th:text="${nt.creditoMateria}"></td>
+				</td>
+				<td>
+
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!--  <footer th:replace="plantilla/template :: footer"></footer>-->
+
+</body>
+</html>

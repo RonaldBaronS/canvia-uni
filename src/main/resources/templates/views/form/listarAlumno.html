@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<title>Lista de Alumnos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+ <style>
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  </style>
+<body background="/images/fondoBlanco.jpg">
+
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+		<h1 th:text=${titulo}></h1>
+	</div>
+	
+     <div class="container">
+		<a class="nav-link" th:href="@{/universidad/v1/buscarAlumno}">Ir Archivos</a>
+	</div>
+
+    <br></br>
+	<div class="container">
+		<table class="table">
+			<thead class="table-dark">
+			<tr>
+				<th scope="col">ID Alumno</th>
+				<th scope="col">Código Alumno</th>
+				<th scope="col">Nombre Alumno</th>
+				<th scope="col">Apellido Alumno</th>
+				<th scope="col">Semestre Alumno</th>
+				<th scope="col">Carrera Profesional</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="nt:${alumnos}">
+				<td th:text="${nt.idAlumno}"></td>
+				<td th:text="${nt.codigoAlumno}"></td>
+				<td th:text="${nt.nombreAlumno}"></td>
+				<td th:text="${nt.apellidoAlumno}"></td>
+				<td th:text="${nt.semestreAlumno}"></td>
+				<td th:text="${nt.carrera}"></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<!--  <footer th:replace="plantilla/template :: footer"></footer>-->
+
+</body>
+</html>
